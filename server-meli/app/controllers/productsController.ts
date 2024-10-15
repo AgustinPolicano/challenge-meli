@@ -26,6 +26,10 @@ export const searchProducts = async (req: any, res: any) => {
         console.log(p)
         p.values.forEach((v: any) => {
           categories.push(v.name);
+
+          v.path_from_root.forEach((path: any) => {
+            categories.push(path.name)
+          })
         });
       }
     });
