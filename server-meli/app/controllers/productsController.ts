@@ -23,6 +23,7 @@ export const searchProducts = async (req: any, res: any) => {
     
     filters.forEach((p: any) => {
       if (p.id === "category") {
+        console.log(p)
         p.values.forEach((v: any) => {
           categories.push(v.name);
         });

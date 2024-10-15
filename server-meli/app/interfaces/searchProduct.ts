@@ -1,5 +1,3 @@
-import { SearchItemsProduct } from "./searchItemsProduct";
-
 export interface SearchProduct {
   author: {
     name: string;
