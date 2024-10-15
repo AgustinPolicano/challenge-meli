@@ -4,7 +4,7 @@ export interface SearchProductsInterface {
     name: string;
     lastname: string;
   };
-  categories: string[];
+  categories: string[] | undefined;
   items: [
     {
       id: string;

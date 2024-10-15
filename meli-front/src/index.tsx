@@ -1,17 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import SearchBox from './components/searchBox/searchBox';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import SearchBox from "./components/searchBox/searchBox";
+import AppRoutes from "./routes";
+import { ChakraProvider, theme } from "@chakra-ui/react";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <SearchBox />
-  </React.StrictMode>
+  <ChakraProvider>
+    <React.StrictMode>
+      <AppRoutes />
+    </React.StrictMode>
+  </ChakraProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

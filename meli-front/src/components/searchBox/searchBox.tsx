@@ -1,53 +1,57 @@
-import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { SearchProductsInterface } from "../../interfaces/searchProducts";
-import { searchProducts } from "../../services/searchProductsService";
-import ProductsSearched from "../productsSearched/productsSearched";
+import { useNavigate } from "react-router-dom";
+import logoML from "../../assets/imgs/MELI-ec0c0e4f.png";
+import "./searchBox.css";
+import { SearchIcon } from "@chakra-ui/icons";
+import { useEffect, useState } from "react";
+import CategoryBreadcrumb from "../categoriesBreadCrumb/categoriesBreadCrumb";
 
 function SearchBox() {
-  const { register, handleSubmit } = useForm();
-  const [loadingProducts, setLoadingProducts] = useState<boolean>(false);
-  const [products, setProducts] = useState<SearchProductsInterface | null>(
-    null
-  );
+  const { register, handleSubmit, reset } = useForm();
+  const [placeHolder, setPlaceHolder] = useState<string>("");
+  const navigate = useNavigate();
 
   const onSubmit = (data: any) => {
-    console.log(data.query);
     if (data.query.length > 1) {
-      setLoadingProducts(true);
-      searchProducts(data.query).then((p) => {
-        setProducts({
-          author: p.author,
-          categories: p.categories,
-          items: p.items.slice(0, 4),
-        });
-        setLoadingProducts(false);
-      });
+      navigate(`/items?search=${encodeURIComponent(data.query)}`);
     } else {
       alert("Ingrese +1 caracter");
     }
   };
 
   useEffect(() => {
-    if (products) {
-      console.log(products);
+    updatePlaceholder();
+  }, [placeHolder]);
+
+  const navigateHome = () => {
+    reset({ query: "" });
+    navigate("");
+  };
+
+  const updatePlaceholder = () => {
+    if (window.innerWidth < 700) {
+      setPlaceHolder("Estoy buscando...");
+    } else {
+      setPlaceHolder("Buscar productos, marcas y más...");
     }
-  }, [products]);
+  };
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register("query")} placeholder="Ingrese su consulta" />
-        <button type="submit">Buscar</button>
+      <form onSubmit={handleSubmit(onSubmit)} className="header-search">
+        <img className="logo-ml" src={logoML} onClick={navigateHome} />
+        <div className="input-container">
+          <input
+            className="input-search"
+            type="text"
+            {...register("query")}
+            placeholder={placeHolder}
+          />
+          <button type="submit" className="icon-button">
+            <SearchIcon />
+          </button>
+        </div>
       </form>
-
-      {loadingProducts ? (
-        <p>Cargando productos...</p>
-      ) : products ? (
-        <ProductsSearched data={products} />
-      ) : (
-        <p>No se encontraron productos.</p>
-      )}
     </div>
   );
 }

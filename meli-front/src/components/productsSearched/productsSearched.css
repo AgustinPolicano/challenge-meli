@@ -1,0 +1,55 @@
+.container-search-products {
+  background-color: #ededed;
+  width: 75%;
+  margin: auto;
+}
+
+.flex-items {
+  display: flex;
+  margin: auto;
+  justify-content: flex-start;
+  padding: 20px;
+  width: 100%;
+  background-color: white;
+  cursor: pointer;
+}
+
+.flex-items div {
+  max-width: 50%;
+}
+
+.flex-items img {
+  width: 160px;
+  height: auto;
+}
+
+.flex-items h3 {
+  margin: 5px 0;
+}
+
+.flex-items p {
+  margin: 0;
+}
+
+.price-text {
+  font-size: 24px;
+}
+
+.container-text-search {
+    margin-left: 10px;
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+.free-shipping{
+    color: #00a650;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.condition-text{
+    color: rgba(0,0,0,.55);
+    font-size: 14px;
+    padding-top: 20px;
+    font-weight: 400;
+}
