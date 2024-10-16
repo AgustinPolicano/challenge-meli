@@ -2,7 +2,6 @@ import React from "react";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import "./categoriesBreadCrumb.css"
 
-// Definir el tipo para las categorías
 interface CategoryBreadcrumbProps {
   categories: string[] | undefined;
 }

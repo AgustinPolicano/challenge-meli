@@ -1,49 +1,51 @@
-  import React, { useEffect, useState } from "react";
-  import { SearchProductsInterface } from "../../interfaces/searchProducts";
-  import { useLocation, useNavigate } from "react-router-dom";
-  import { searchProducts } from "../../services/searchProductsService";
-  import { Spinner } from "@chakra-ui/react";
-  import "./productsSearched.css";
-  import CategoryBreadcrumb from "../categoriesBreadCrumb/categoriesBreadCrumb";
+import React, { useEffect, useState } from "react";
+import { SearchProductsInterface } from "../../interfaces/searchProducts";
+import { useLocation, useNavigate } from "react-router-dom";
+import { searchProducts } from "../../services/searchProductsService";
+import { Spinner } from "@chakra-ui/react";
+import "./productsSearched.css";
+import CategoryBreadcrumb from "../categoriesBreadCrumb/categoriesBreadCrumb";
 
-  const ProductsSearched = () => {
-    const location = useLocation();
-    const [products, setProducts] = useState<SearchProductsInterface | null>(
-      null
-    );
-    const [loading, setLoading] = useState<boolean>(true);
-    const navigate = useNavigate();
-    const getQueryParam = (param: string) => {
-      const query = new URLSearchParams(location.search);
-      return query.get(param);
-    };
+const ProductsSearched = () => {
+  const location = useLocation();
+  const [products, setProducts] = useState<SearchProductsInterface | null>(
+    null
+  );
+  const [loading, setLoading] = useState<boolean>(true);
+  const navigate = useNavigate();
+  const getQueryParam = (param: string) => {
+    const query = new URLSearchParams(location.search);
+    return query.get(param);
+  };
 
-    const setItemDetails = (itemId: string) => {
-      navigate(`/items/${itemId}`);
-    };
+  const setItemDetails = (itemId: string) => {
+    navigate(`/items/${itemId}`, {
+      state: { categories: products?.categories },
+    });
+  };
 
-    useEffect(() => {
-      setLoading(true);
-      const query = getQueryParam("search");
-      if (query) {
-        searchProducts(query).then((data) => {
-          setProducts({
-            author: data.author,
-            categories: data.categories,
-            items: data.items.slice(0, 4),
-          });
-          console.log(products?.categories);
-          setLoading(false);
+  useEffect(() => {
+    setLoading(true);
+    const query = getQueryParam("search");
+    if (query) {
+      searchProducts(query).then((data) => {
+        setProducts({
+          author: data.author,
+          categories: data.categories,
+          items: data.items.slice(0, 4),
         });
-      } else {
         setLoading(false);
-      }
-    }, [location]);
+      });
+    } else {
+      setLoading(false);
+    }
+  }, [location]);
 
-    if (!loading) {
-      return (
-        <div className="container-search-products">
-          <CategoryBreadcrumb categories={products?.categories} />
+  if (!loading) {
+    return (
+      <div className="container-search-products">
+        <CategoryBreadcrumb categories={products?.categories} />
+        <div className="container-search-products-child">
           {products?.items.map((item) => (
             <div
               className="flex-items"
@@ -70,14 +72,15 @@
             </div>
           ))}
         </div>
-      );
-    } else {
-      return (
-        <div>
-          <Spinner color="yellow.500" />
-        </div>
-      );
-    }
-  };
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <Spinner color="yellow.500" />
+      </div>
+    );
+  }
+};
 
-  export default ProductsSearched;
+export default ProductsSearched;

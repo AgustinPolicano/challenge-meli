@@ -1,7 +1,12 @@
 .container-search-products {
-  background-color: #ededed;
   width: 75%;
   margin: auto;
+
+}
+
+.container-search-products-child{
+  background-color: white;
+  border-radius: 10px;
 }
 
 .flex-items {
@@ -10,7 +15,6 @@
   justify-content: flex-start;
   padding: 20px;
   width: 100%;
-  background-color: white;
   cursor: pointer;
 }
 

@@ -22,7 +22,7 @@ export const productDetails = async (req: any, res: any) => {
         name: "Agustin",
         lastname: "Policano Damato",
       },
-      items: {
+      item: {
         id: itemInfo.id,
         title: itemInfo.title,
         price: {

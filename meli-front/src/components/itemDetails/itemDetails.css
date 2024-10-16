@@ -1,0 +1,40 @@
+.container-item-detail{
+    margin: auto;
+    width: 75%;
+    height: auto;
+}
+
+.card-product-detail{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.item-detail{
+    justify-content: flex-start;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+}
+
+.container-img-detail{
+    margin: auto;
+}
+
+.container-text-details{
+    width: 30%;
+    margin-left: auto;
+    padding-left: 20px;
+}
+
+.button-buy{
+    color: white;
+    background-color: #3483fa;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.container-button{
+    width: 100%;
+}

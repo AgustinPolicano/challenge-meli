@@ -3,7 +3,7 @@ export interface ItemProductDetail {
     name: string;
     lastname: string;
   };
-  items:
+  item:
     {
       id: string;
       title: string;
