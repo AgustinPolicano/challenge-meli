@@ -27,7 +27,7 @@ Para configurar el proyecto, seguir los siguientes pasos:
 
 2. Configura el servidor:
     ```bash
-    cd server-meli
+    cd .\server-meli\
     npm install
     ```
 
@@ -58,4 +58,5 @@ Una vez que el servidor esté en funcionamiento, podes interactuar con la API a 
 
 Para ejecutar las pruebas unitarias, usa el siguiente comando en la raíz del proyecto:
 ```bash
+cd .\meli-front\
 npm test
