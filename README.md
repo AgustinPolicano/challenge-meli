@@ -2,6 +2,15 @@
 
 Challenge de MercadoLibre que consiste en la creación de un servidor con Node.js y un front-end con React.
 
+## Vista final
+Desktop:
+
+![Vista previa de la aplicación](./meli-front/src/assets/gifs/meli-desktop.gif) 
+
+Mobile:
+
+![Vista previa de la aplicación](./meli-front/src/assets/gifs/Meli-mobile.gif)
+
 ## Requisitos previos
 
 - [Node.js](https://nodejs.org/) (versión recomendada: 14 o superior)
