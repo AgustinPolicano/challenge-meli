@@ -38,3 +38,21 @@
 .container-button{
     width: 100%;
 }
+
+.top-price-decimals{
+    position: relative;
+    bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .container-item-detail {
+        width: 90%;}
+    .item-detail{
+        padding: 10px;
+        display: grid;
+    }
+    .container-text-details{
+        width: 100%;
+        margin-top: 10px;
+    }
+  }

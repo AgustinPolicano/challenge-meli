@@ -1,0 +1,16 @@
+.item-description-text{
+    max-width: 70%;
+    padding: 30px;
+}
+
+.description-title{
+    margin-bottom: 20px;
+}
+
+
+@media (max-width: 768px) {
+    .item-description-text{
+        width: 100%;
+        max-width: 100%;
+    }
+  }

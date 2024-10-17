@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import logoML from "../../assets/imgs/MELI-ec0c0e4f.png";
-import "./searchBox.css";
+import "./searchBox.scss";
 import { SearchIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import CategoryBreadcrumb from "../categoriesBreadCrumb/categoriesBreadCrumb";
@@ -29,7 +29,7 @@ function SearchBox() {
   };
 
   const updatePlaceholder = () => {
-    if (window.innerWidth < 700) {
+    if (window.innerWidth < 768) {
       setPlaceHolder("Estoy buscando...");
     } else {
       setPlaceHolder("Buscar productos, marcas y más...");
@@ -39,7 +39,7 @@ function SearchBox() {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className="header-search">
-        <img className="logo-ml" src={logoML} onClick={navigateHome} />
+        <img className="logo-ml" src={logoML} onClick={navigateHome} alt="logo-meli"/>
         <div className="input-container">
           <input
             className="input-search"

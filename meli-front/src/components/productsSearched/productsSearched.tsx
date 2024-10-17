@@ -3,7 +3,7 @@ import { SearchProductsInterface } from "../../interfaces/searchProducts";
 import { useLocation, useNavigate } from "react-router-dom";
 import { searchProducts } from "../../services/searchProductsService";
 import { Spinner } from "@chakra-ui/react";
-import "./productsSearched.css";
+import "./productsSearched.scss";
 import CategoryBreadcrumb from "../categoriesBreadCrumb/categoriesBreadCrumb";
 
 const ProductsSearched = () => {
@@ -45,7 +45,7 @@ const ProductsSearched = () => {
     return (
       <div className="container-search-products">
         <CategoryBreadcrumb categories={products?.categories} />
-        <div className="container-search-products-child">
+        <section className="container-search-products-child">
           {products?.items.map((item) => (
             <div
               className="flex-items"
@@ -56,7 +56,7 @@ const ProductsSearched = () => {
                 <img src={item.picture} alt={item.title} />
               </div>
               <div className="container-text-search">
-                <span className="price-text">$ {item.price.amount}</span>
+                <h2 className="price-text">$ {item.price.amount}</h2>
                 <h3>{item.title}</h3>
                 <div>
                   {item.free_shipping && (
@@ -71,13 +71,13 @@ const ProductsSearched = () => {
               </div>
             </div>
           ))}
-        </div>
+        </section>
       </div>
     );
   } else {
     return (
-      <div>
-        <Spinner color="yellow.500" />
+      <div className="loading-container">
+        <Spinner size='xl' color="yellow.500" />
       </div>
     );
   }

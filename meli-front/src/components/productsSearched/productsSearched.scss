@@ -14,12 +14,13 @@
   margin: auto;
   justify-content: flex-start;
   padding: 20px;
+  align-items: center;
   width: 100%;
   cursor: pointer;
 }
 
 .flex-items div {
-  max-width: 50%;
+  max-width: 300px;
 }
 
 .flex-items img {
@@ -48,7 +49,9 @@
 .free-shipping{
     color: #00a650;
     font-size: 14px;
-    font-weight: 600;
+    font-family: "Proxima Nova Bold";
+    background-color: #e5f6ed;
+    padding: 10px;
 }
 
 .condition-text{
@@ -56,4 +59,27 @@
     font-size: 14px;
     padding-top: 20px;
     font-weight: 400;
+}
+
+.loading-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+  .container-search-products{
+    width: 90%;
+  }
+  .flex-items{
+    padding: 5px;
+    align-items: center;
+  }
+  .flex-items div{
+    width: 200px;
+    margin-bottom: 20px;
+  }
+  .flex-items img{
+    width: 150px;
+  }
 }

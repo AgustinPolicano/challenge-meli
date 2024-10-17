@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ESNext", // o "ES6"
+    "target": "ESNext", 
     "module": "commonjs",
-    "jsx": "react-jsx", // Asegúrate de que esté configurado como "react-jsx"
+    "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
