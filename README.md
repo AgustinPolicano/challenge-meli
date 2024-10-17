@@ -38,7 +38,6 @@ Para configurar el proyecto, seguir los siguientes pasos:
 
 4. (Opcional) Para configurar el front-end, navega a la carpeta del proyecto de React y ejecuta:
     ```bash
-    cd ../client-meli
     npm install
     npm start
     ```
